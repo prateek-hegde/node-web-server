@@ -9,6 +9,14 @@ app.use(express.static('public'));
 //     return res.sendFile(__dirname + '/public/index.html');
 // });
 
+// Catch 404
+app.use((req, res, next) => {
+    res.status(404).send({
+        error: "404 : Page not found"
+    });
+});
+
+
 app.get('/assessment/*', (req, res) => {
     return res.sendFile(__dirname + '/public/assessment/index.html');
 });
